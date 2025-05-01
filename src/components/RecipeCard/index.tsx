@@ -1,12 +1,26 @@
 import { Link } from "react-router-dom";
 
-export default function RecipeCard({ id }: { id: number }) {
+interface Recipe {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+}
+
+interface RecipeProps {
+  recipe: Recipe;
+}
+
+export default function RecipeCard({ recipe }: RecipeProps) {
   console.log("### RecipeCard");
   return (
     <div>
-      <div>{`Recipe ${id}`}</div>
-      <div>Description</div>
-      <Link to={`/recipe/${id}`}>{`Go to recipe ${id}`}</Link>
+      <div key={recipe.idMeal}>
+        <img src={recipe.strMealThumb} alt={recipe.strMeal} width={100} />
+        <p>{recipe.strMeal}</p>
+        <Link
+          to={`/recipe/${recipe.idMeal}`}
+        >{`Go to recipe ${recipe.idMeal}`}</Link>
+      </div>
     </div>
   );
 }

@@ -1,13 +1,26 @@
 import RecipeCard from "../RecipeCard";
 
-export default function RecipeList() {
-  console.log("### RecipeList");
+interface Recipe {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+}
+
+interface RecipeListProps {
+  recipes: Recipe[];
+}
+
+export default function RecipeList({ recipes }: RecipeListProps) {
+  console.log("### Recipes:", recipes);
   return (
     <div>
       <h2>Results</h2>
       <div>
-        <RecipeCard id={1} />
-        <RecipeCard id={2} />
+        {recipes.length === 0 ? (
+          <p>No recipes found.</p>
+        ) : (
+          recipes.map((recipe) => <RecipeCard recipe={recipe} />)
+        )}
       </div>
     </div>
   );
