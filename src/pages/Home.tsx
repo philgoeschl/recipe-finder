@@ -1,6 +1,6 @@
 import SearchBar from "../components/SearchBar";
 import RecipeList from "../components/RecipeList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Recipe {
   idMeal: string;
@@ -17,8 +17,18 @@ export default function Home() {
       `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
     );
     const data = await res.json();
-    setRecipes(data.meals || []);
+    const meals = data.meals || [];
+    sessionStorage.setItem("lastSearchResults", JSON.stringify(meals));
+    setRecipes(meals);
   };
+
+  useEffect(() => {
+    const saved = sessionStorage.getItem("lastSearchResults");
+    if (saved) {
+      setRecipes(JSON.parse(saved));
+    }
+  }, []);
+
   return (
     <div>
       <h1>Recipes and more</h1>
