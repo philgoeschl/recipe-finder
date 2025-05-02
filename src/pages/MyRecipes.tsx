@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import RecipeList from "../components/RecipeList";
-import { Link } from "react-router-dom";
+import NavigationBar from "../components/NavigationBar";
 
 interface Recipe {
   idMeal: string;
@@ -25,12 +25,12 @@ export default function MyRecipes() {
 
   return (
     <div>
+      <NavigationBar />
       <h1>My stored recipes</h1>
       <button onClick={() => clearMyRecipes()}>Clear my recipes</button>
       <div>
         <RecipeList recipes={recipes} />
       </div>
-      <Link to="/">Back to start</Link>
     </div>
   );
 }

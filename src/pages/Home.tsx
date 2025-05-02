@@ -2,6 +2,7 @@ import SearchBar from "../components/SearchBar";
 import RecipeList from "../components/RecipeList";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import NavigationBar from "../components/NavigationBar";
 
 interface Recipe {
   idMeal: string;
@@ -32,8 +33,8 @@ export default function Home() {
 
   return (
     <div>
+      <NavigationBar />
       <h1>Recipes and more</h1>
-      <Link to="/my-recipes">My Recipes</Link>
       <div>
         <SearchBar onSearch={fetchRecipes} />
       </div>

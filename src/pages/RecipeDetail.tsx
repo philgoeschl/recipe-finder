@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import NavigationBar from "../components/NavigationBar";
 
 interface Meal {
   idMeal: string;
@@ -44,11 +45,11 @@ export default function RecipeDetail() {
 
   return (
     <div>
+      <NavigationBar />
       <h1>{meal.strMeal}</h1>
       <img src={meal.strMealThumb} alt={meal.strMeal} />
       <p>{meal.strInstructions}</p>
       <button onClick={() => addToMyRecipes(meal)}>Add to MyRecipes</button>
-      <Link to="/">Back to start</Link>
     </div>
   );
 }
