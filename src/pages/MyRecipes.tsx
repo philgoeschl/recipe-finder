@@ -11,6 +11,11 @@ interface Recipe {
 export default function MyRecipes() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
 
+  const clearMyRecipes = () => {
+    localStorage.removeItem("myRecipes");
+    setRecipes([]);
+  };
+
   useEffect(() => {
     const saved = localStorage.getItem("myRecipes");
     if (saved) {
@@ -21,6 +26,7 @@ export default function MyRecipes() {
   return (
     <div>
       <h1>My stored recipes</h1>
+      <button onClick={() => clearMyRecipes()}>Clear my recipes</button>
       <div>
         <RecipeList recipes={recipes} />
       </div>
