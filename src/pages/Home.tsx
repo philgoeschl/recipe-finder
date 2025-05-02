@@ -1,7 +1,6 @@
 import SearchBar from "../components/SearchBar";
 import RecipeList from "../components/RecipeList";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import NavigationBar from "../components/NavigationBar";
 
 interface Recipe {
