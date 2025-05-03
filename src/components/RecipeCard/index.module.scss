@@ -5,6 +5,14 @@ a {
   color: inherit;
 }
 
+.link {
+  transition: opacity 0.2s ease;
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}
+
 .tile {
   position: relative;
   width: 100%;
@@ -16,15 +24,9 @@ a {
   background-color: styles.$secondary-color;
   display: flex;
   align-items: flex-end;
-  transition: transform 0.2s ease;
-  &:hover {
-    transform: scale(1.02);
-  }
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
