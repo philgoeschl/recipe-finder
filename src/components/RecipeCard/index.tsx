@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import styles from "./index.module.scss";
 
 interface Recipe {
   idMeal: string;
@@ -11,16 +12,17 @@ interface RecipeProps {
 }
 
 export default function RecipeCard({ recipe }: RecipeProps) {
-  console.log("### RecipeCard");
   return (
-    <div>
-      <div key={recipe.idMeal}>
-        <img src={recipe.strMealThumb} alt={recipe.strMeal} width={100} />
-        <p>{recipe.strMeal}</p>
-        <Link
-          to={`/recipe/${recipe.idMeal}`}
-        >{`Go to recipe ${recipe.idMeal}`}</Link>
+    <Link to={`/recipe/${recipe.idMeal}`}>
+      <div
+        key={recipe.idMeal}
+        className={styles.tile}
+        style={{ backgroundImage: `url(${recipe.strMealThumb})` }}
+      >
+        <div className={styles.overlay}>
+          <h3>{recipe.strMeal}</h3>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

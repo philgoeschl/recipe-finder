@@ -1,4 +1,5 @@
 import RecipeCard from "../RecipeCard";
+import styles from "./index.module.scss";
 
 interface Recipe {
   idMeal: string;
@@ -15,7 +16,7 @@ export default function RecipeList({ recipes }: RecipeListProps) {
   return (
     <div>
       <h2>Results</h2>
-      <div>
+      <div className={styles.container}>
         {recipes.length === 0 ? (
           <p>No recipes found.</p>
         ) : (
