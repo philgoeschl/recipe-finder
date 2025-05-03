@@ -12,7 +12,6 @@ interface RecipeListProps {
 }
 
 export default function RecipeList({ recipes }: RecipeListProps) {
-  console.log("### Recipes:", recipes);
   return (
     <div>
       <h2>Results</h2>

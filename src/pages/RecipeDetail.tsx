@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import NavigationBar from "../components/NavigationBar";
+import MealDetail from "../components/MealDetail";
 
 interface Meal {
   idMeal: string;
@@ -46,9 +47,7 @@ export default function RecipeDetail() {
   return (
     <div>
       <NavigationBar />
-      <h1>{meal.strMeal}</h1>
-      <img src={meal.strMealThumb} alt={meal.strMeal} />
-      <p>{meal.strInstructions}</p>
+      <MealDetail meal={meal} />
       <button onClick={() => addToMyRecipes(meal)}>Add to MyRecipes</button>
     </div>
   );

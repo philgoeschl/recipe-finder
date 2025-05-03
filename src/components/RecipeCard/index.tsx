@@ -13,12 +13,15 @@ interface RecipeProps {
 
 export default function RecipeCard({ recipe }: RecipeProps) {
   return (
-    <Link to={`/recipe/${recipe.idMeal}`} className={styles.link}>
+    <Link
+      to={`/recipe/${recipe.idMeal}`}
+      className={styles.link}
+      key={recipe.idMeal}
+    >
       <div
-        key={recipe.idMeal}
         className={styles.tile}
         style={{ backgroundImage: `url(${recipe.strMealThumb})` }}
-      ></div>
+      />
       <div className={styles.overlay}>
         <h3>{recipe.strMeal}</h3>
       </div>
