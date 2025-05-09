@@ -1,6 +1,14 @@
-$font-stack: "Inter", sans-serif;
-$primary-color: hsl(139, 37%, 44%);
-$secondary-color: hsl(136, 40%, 82%);
+$font-stack: Verdana, sans-serif;
+$primary-color: #FB7F64;
+$primary-color-text: #3C303E;
+$secondary-color: #3C303E;
+$secondary-color-text: #DDCDA1;
+
+// colors (background color + text color)
+// #3c303e #ddcda1
+// #fb7f64 #3c303e
+// #f5eee2 #e26044
+// #c6b895 #f5eee2
 
 $spacing-sm: 8px;
 $spacing-md: 16px;

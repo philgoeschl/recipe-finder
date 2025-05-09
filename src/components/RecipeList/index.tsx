@@ -9,12 +9,13 @@ interface Recipe {
 
 interface RecipeListProps {
   recipes: Recipe[];
+  title: String;
 }
 
-export default function RecipeList({ recipes }: RecipeListProps) {
+export default function RecipeList({ recipes, title }: RecipeListProps) {
   return (
     <div className={styles.container}>
-      <h2>Results</h2>
+      <h2 className={styles.headline}>{title}</h2>
       <div className={styles.list}>
         {recipes.length === 0 ? (
           <p>No recipes found.</p>

@@ -1,0 +1,37 @@
+@use "../../styles/variables" as styles;
+
+.container {
+
+}
+
+.headline {
+    color: styles.$secondary-color;
+}
+
+.description {
+    color: styles.$secondary-color;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+}
+
+.button {
+    background-color: styles.$secondary-color;
+    color: styles.$secondary-color-text;
+    border: none;
+    padding: 8px 32px;
+    font-size: 18px;
+    cursor: pointer;
+    &:hover {
+        background-color: styles.$primary-color;
+        color: styles.$primary-color-text;
+
+    }
+}
+

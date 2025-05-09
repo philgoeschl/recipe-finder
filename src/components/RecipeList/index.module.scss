@@ -1,7 +1,13 @@
+@use "../../styles/variables" as styles;
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 1rem;
+}
+
+.headline {
+  color: styles.$secondary-color;
 }
 
 .list {

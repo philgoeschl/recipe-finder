@@ -9,8 +9,16 @@ interface Recipe {
   strMealThumb: string;
 }
 
+function createTitle(lastQuery: String) {
+  if (lastQuery) {
+    return `Results for "${lastQuery}"`
+  }
+  return "Results"
+}
+
 export default function Home() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [lastQuery, setLastQuery] = useState<String>("");
 
   const fetchRecipes = async (query: string) => {
     // Using Test API Key -> https://www.themealdb.com/api.php
@@ -20,25 +28,30 @@ export default function Home() {
     const data = await res.json();
     const meals = data.meals || [];
     sessionStorage.setItem("lastSearchResults", JSON.stringify(meals));
+    sessionStorage.setItem("lastSearchQuery", query);
     setRecipes(meals);
+    setLastQuery(query);
   };
 
   useEffect(() => {
-    const saved = sessionStorage.getItem("lastSearchResults");
-    if (saved) {
-      setRecipes(JSON.parse(saved));
+    const lastRecipes = sessionStorage.getItem("lastSearchResults");
+    const lastQuery = sessionStorage.getItem("lastSearchQuery");
+    if (lastRecipes) {
+      setRecipes(JSON.parse(lastRecipes));
+    }
+    if (lastQuery) {
+      setLastQuery(lastQuery);
     }
   }, []);
 
   return (
     <div>
       <NavigationBar />
-      <h1>Recipes and more</h1>
       <div>
         <SearchBar onSearch={fetchRecipes} />
       </div>
       <div>
-        <RecipeList recipes={recipes} />
+        <RecipeList recipes={recipes} title={createTitle(lastQuery)} />
       </div>
     </div>
   );

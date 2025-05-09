@@ -1,1 +1,6 @@
-@use "./variables";
+@use "./variables" as styles;
+
+body {
+    margin: unset;
+    font-family: styles.$font-stack;
+}

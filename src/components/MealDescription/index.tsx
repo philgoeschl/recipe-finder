@@ -25,10 +25,12 @@ const addToMyRecipes = (meal: Meal) => {
 
 export default function MealDescription({ meal }: MealProps) {
   return (
-    <div>
-      <h1>{meal.strMeal}</h1>
-      <p>{meal.strInstructions}</p>
-      <button onClick={() => addToMyRecipes(meal)}>Add to MyRecipes</button>
+    <div className={styles.container}>
+      <h1 className={styles.headline}>{meal.strMeal}</h1>
+      <p className={styles.description}>{meal.strInstructions}</p>
+      <div className={styles.actions}>
+        <button className={styles.button} onClick={() => addToMyRecipes(meal)}>Add to MyRecipes</button>
+      </div>
     </div>
   );
 }
