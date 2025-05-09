@@ -26,11 +26,10 @@ export default function MyRecipes() {
   return (
     <div>
       <NavigationBar />
-      <h1>My stored recipes</h1>
-      <button onClick={() => clearMyRecipes()}>Clear my recipes</button>
       <div>
-        <RecipeList recipes={recipes} />
+        <RecipeList recipes={recipes} title={"My stored recipes"} />
       </div>
+      <button onClick={() => clearMyRecipes()}>Clear my recipes</button>
     </div>
   );
 }
