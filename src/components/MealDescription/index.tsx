@@ -11,11 +11,24 @@ interface MealProps {
   meal: Meal;
 }
 
+const addToMyRecipes = (meal: Meal) => {
+    const myRecipesJSON = localStorage.getItem("myRecipes");
+    const myRecipes: Meal[] = myRecipesJSON ? JSON.parse(myRecipesJSON) : [];
+
+    const exists = myRecipes.some((m) => m.idMeal === meal.idMeal);
+
+    if (!exists) {
+      myRecipes.push(meal);
+      localStorage.setItem("myRecipes", JSON.stringify(myRecipes));
+    }
+  };
+
 export default function MealDescription({ meal }: MealProps) {
   return (
     <div>
       <h1>{meal.strMeal}</h1>
       <p>{meal.strInstructions}</p>
+      <button onClick={() => addToMyRecipes(meal)}>Add to MyRecipes</button>
     </div>
   );
 }

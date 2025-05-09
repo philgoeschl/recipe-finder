@@ -13,9 +13,9 @@ interface RecipeListProps {
 
 export default function RecipeList({ recipes }: RecipeListProps) {
   return (
-    <div>
+    <div className={styles.container}>
       <h2>Results</h2>
-      <div className={styles.container}>
+      <div className={styles.list}>
         {recipes.length === 0 ? (
           <p>No recipes found.</p>
         ) : (

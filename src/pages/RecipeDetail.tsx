@@ -14,18 +14,6 @@ export default function RecipeDetail() {
   const { id } = useParams();
   const [meal, setMeal] = useState<Meal | null>(null);
 
-  const addToMyRecipes = (meal: Meal) => {
-    const myRecipesJSON = localStorage.getItem("myRecipes");
-    const myRecipes: Meal[] = myRecipesJSON ? JSON.parse(myRecipesJSON) : [];
-
-    const exists = myRecipes.some((m) => m.idMeal === meal.idMeal);
-
-    if (!exists) {
-      myRecipes.push(meal);
-      localStorage.setItem("myRecipes", JSON.stringify(myRecipes));
-    }
-  };
-
   useEffect(() => {
     const saved = sessionStorage.getItem("lastSearchResults");
     if (saved) {
@@ -48,7 +36,6 @@ export default function RecipeDetail() {
     <div>
       <NavigationBar />
       <MealDetail meal={meal} />
-      <button onClick={() => addToMyRecipes(meal)}>Add to MyRecipes</button>
     </div>
   );
 }
