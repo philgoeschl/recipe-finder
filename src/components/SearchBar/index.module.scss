@@ -1,28 +1,45 @@
-@use "../../styles/variables";
+@use "../../styles/variables" as styles;
 
 .container {
-  padding: 16px;
   margin: auto;
   max-width: 800px;
 }
 
+form {}
+
 .form {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
+  gap: 8px;
 }
 
 .input {
   height: 32px;
   width: 50%;
-  font-size: 20px;
+  font-size: 18px;
   padding: 4px 16px;
+  color: styles.$secondary-color-text;
+  background-color: unset;
+  border: 1px solid styles.$secondary-color-text;
+
+  &::placeholder {
+    color: styles.$secondary-color-text;
+  }
 }
 
 .button {
-  padding: 8px 32px;
-  font-size: 20px;
+  padding: 16px 32px;
+  font-size: 18px;
+  color: styles.$secondary-color-text;
+  background-color: unset;
+  box-sizing: content-box;
+  border: none;
+
   &:hover {
     cursor: pointer;
+    background-color: styles.$primary-color;
+    color: styles.$primary-color-text;
+    border-color: styles.$primary-color;
   }
 }

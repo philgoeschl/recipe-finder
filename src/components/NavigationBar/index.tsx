@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./index.module.scss";
 import SearchBar from "../SearchBar";
 
@@ -16,6 +16,9 @@ const fetchRecipes = async (query: string) => {
 const NavigationBar: React.FC = () => {
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isHomePage = location.pathname === "/home";
 
   const handleOnSearch = async (query: string) => {
     await fetchRecipes(query);
@@ -24,18 +27,20 @@ const NavigationBar: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <Link className={styles.link} to="/">
-        Home
-      </Link>
-      <Link className={styles.link} to="/my-recipes">
-        My Recipes
-      </Link>
-      <Link className={styles.link} to="/results">
-        Last results
-      </Link>
-      <div className={styles.search}>
-        <SearchBar onSearch={handleOnSearch} />
+      <div className={styles.links}>
+        <Link className={styles.link} to="/home">
+          Home
+        </Link>
+        <Link className={styles.link} to="/my-recipes">
+          My Recipes
+        </Link>
+        <Link className={styles.link} to="/results">
+          Last results
+        </Link>
       </div>
+      {!isHomePage && <div className={styles.search}>
+        <SearchBar onSearch={handleOnSearch} />
+      </div>}
     </div>
   );
 }

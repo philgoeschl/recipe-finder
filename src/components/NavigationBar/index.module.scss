@@ -1,10 +1,15 @@
 @use "../../styles/variables" as styles;
 
 .container {
-  background-color: styles.$secondary-color;
   display: flex;
-  gap: 16px;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  background-color: styles.$secondary-color;
+}
+
+.links {
+  display: flex;
+  gap: 8px;
 }
 
 .link {
@@ -14,7 +19,6 @@
   margin: auto 0;
 
   &:hover {
-    opacity: 0.8;
     color: styles.$primary-color-text;
     background-color: styles.$primary-color;
   }

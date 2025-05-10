@@ -6,10 +6,13 @@ a {
 }
 
 .link {
-  transition: opacity 0.2s ease;
+  // transition: opacity 0.2s ease;
+  overflow: hidden;
+
   &:hover {
-    opacity: 0.8;
     text-decoration: underline;
+    background-color: styles.$secondary-color;
+    color: styles.$secondary-color-text;
   }
 }
 
@@ -19,7 +22,6 @@ a {
   height: 200px;
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
   overflow: hidden;
   background-color: styles.$secondary-color;
   display: flex;
@@ -30,6 +32,7 @@ a {
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
+
   h3 {
     margin: 0;
     font-size: 1.2rem;

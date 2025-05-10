@@ -8,7 +8,7 @@ import Results from "./pages/Results";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/recipe/:id" element={<RecipeDetail />} />
       <Route path="/results" element={<Results />} />
       <Route path="/my-recipes" element={<MyRecipes />} />

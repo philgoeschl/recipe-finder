@@ -1,0 +1,14 @@
+@use "../../styles/variables" as styles;
+
+.container {
+    max-width: 1000px;
+    // background-color: styles.$secondary-color;
+    padding: 16px;
+    margin: 32px auto;
+}
+
+.headline {
+    color: styles.$secondary-color;
+    // color: styles.$primary-color;
+    text-align: center;
+}
