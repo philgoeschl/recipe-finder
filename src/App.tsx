@@ -1,5 +1,5 @@
 import "./styles/main.scss";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import RecipeDetail from "./pages/RecipeDetail";
 import MyRecipes from "./pages/MyRecipes";

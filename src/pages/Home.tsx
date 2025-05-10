@@ -1,5 +1,6 @@
 import HeroSearch from "../components/HeroSearch";
 import NavigationBar from "../components/NavigationBar";
+import FeaturedItems from "../components/FeaturedItems";
 
 const Home: React.FC = () => {
 
@@ -8,6 +9,7 @@ const Home: React.FC = () => {
       <NavigationBar />
       <div>
         <HeroSearch />
+        <FeaturedItems />
       </div>
     </div>
   );

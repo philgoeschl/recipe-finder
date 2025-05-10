@@ -1,0 +1,30 @@
+@use "../../styles/variables" as styles;
+
+.container {
+    overflow-x: auto;
+}
+
+.headline {
+    margin: 16px auto;
+    max-width: 1000px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+}
+
+.content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
