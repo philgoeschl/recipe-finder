@@ -18,7 +18,7 @@ const NavigationBar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isHomePage = location.pathname === "/home";
+  const isHomePage = location.pathname === "/" || location.pathname === "";
 
   const handleOnSearch = async (query: string) => {
     await fetchRecipes(query);
@@ -29,7 +29,7 @@ const NavigationBar: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.links}>
-          <Link className={styles.link} to="/home">
+          <Link className={styles.link} to="/">
             Home
           </Link>
           <Link className={styles.link} to="/my-recipes">
