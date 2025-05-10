@@ -9,7 +9,7 @@ interface Recipe {
 
 interface RecipeListProps {
   recipes: Recipe[];
-  title: String;
+  title: string;
 }
 
 export default function RecipeList({ recipes, title }: RecipeListProps) {
@@ -20,7 +20,7 @@ export default function RecipeList({ recipes, title }: RecipeListProps) {
         {recipes.length === 0 ? (
           <p>No recipes found.</p>
         ) : (
-          recipes.map((recipe) => <RecipeCard recipe={recipe} />)
+          recipes.map((recipe) => <RecipeCard key={recipe.idMeal} recipe={recipe} />)
         )}
       </div>
     </div>
