@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./index.module.scss";
-import SearchBar from "../SearchBar";
+import Search from "../Search";
 
 const fetchRecipes = async (query: string) => {
   // Using Test API Key -> https://www.themealdb.com/api.php
@@ -27,20 +27,22 @@ const NavigationBar: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.links}>
-        <Link className={styles.link} to="/home">
-          Home
-        </Link>
-        <Link className={styles.link} to="/my-recipes">
-          My Recipes
-        </Link>
-        <Link className={styles.link} to="/results">
-          Last results
-        </Link>
+      <div className={styles.content}>
+        <div className={styles.links}>
+          <Link className={styles.link} to="/home">
+            Home
+          </Link>
+          <Link className={styles.link} to="/my-recipes">
+            My Recipes
+          </Link>
+          <Link className={styles.link} to="/results">
+            Last results
+          </Link>
+        </div>
+        {!isHomePage && <div className={styles.search}>
+          <Search onSearch={handleOnSearch} />
+        </div>}
       </div>
-      {!isHomePage && <div className={styles.search}>
-        <SearchBar onSearch={handleOnSearch} />
-      </div>}
     </div>
   );
 }

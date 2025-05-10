@@ -2,13 +2,35 @@
 
 .container {
     max-width: 1000px;
-    // background-color: styles.$secondary-color;
     padding: 16px;
     margin: 32px auto;
 }
 
 .headline {
     color: styles.$secondary-color;
-    // color: styles.$primary-color;
     text-align: center;
+}
+
+.form {
+    flex-direction: column;
+}
+
+.input {
+    color: styles.$secondary-color;
+    background-color: unset;
+    border: 1px solid styles.$secondary-color;
+
+    &::placeholder {
+        color: styles.$secondary-color;
+    }
+}
+
+.button {
+    background-color: styles.$secondary-color;
+    color: styles.$secondary-color-text;
+
+    &:hover {
+        background-color: styles.$primary-color;
+        color: styles.$primary-color-text;
+    }
 }

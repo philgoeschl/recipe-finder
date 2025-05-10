@@ -1,10 +1,15 @@
 @use "../../styles/variables" as styles;
 
 .container {
+  background-color: styles.$secondary-color;
+}
+
+.content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: styles.$secondary-color;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .links {

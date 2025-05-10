@@ -1,15 +1,9 @@
 @use "../../styles/variables" as styles;
 
-.container {
-  margin: auto;
-  max-width: 800px;
-}
-
-form {}
+.container {}
 
 .form {
   display: flex;
-  justify-content: end;
   align-items: center;
   gap: 8px;
 }

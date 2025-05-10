@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import SearchBar from "../SearchBar";
+import Search from "../Search";
 import styles from "./index.module.scss";
 
 const mealPrompts: string[] = [
@@ -39,7 +39,7 @@ const HeroSearch: React.FC = () => {
     return (
         <div className={styles.container}>
             <h1 className={styles.headline}>{getRandomPrompt()}</h1>
-            <SearchBar onSearch={handleOnSearch} />
+            <Search onSearch={handleOnSearch} formClassOverride={styles.form} inputClassOverride={styles.input} buttonClassOverride={styles.button} />
         </div>
     )
 }
