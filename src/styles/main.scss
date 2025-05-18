@@ -1,6 +1,7 @@
 @use "./variables" as styles;
 
 body {
-    margin: unset;
-    font-family: styles.$font-stack;
+  margin: unset;
+  font-family: styles.$font-stack;
+  margin-top: 53px;
 }

@@ -19,7 +19,7 @@ export default function MyRecipes() {
   useEffect(() => {
     const saved = localStorage.getItem("myRecipes");
     if (saved) {
-      setRecipes(JSON.parse(saved));
+      setRecipes(JSON.parse(saved).reverse());
     }
   }, []);
 

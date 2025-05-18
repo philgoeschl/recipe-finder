@@ -12,16 +12,30 @@ interface MealProps {
 }
 
 const addToMyRecipes = (meal: Meal) => {
-    const myRecipesJSON = localStorage.getItem("myRecipes");
-    const myRecipes: Meal[] = myRecipesJSON ? JSON.parse(myRecipesJSON) : [];
+  const myRecipesJSON = localStorage.getItem("myRecipes");
+  const myRecipes: Meal[] = myRecipesJSON ? JSON.parse(myRecipesJSON) : [];
 
-    const exists = myRecipes.some((m) => m.idMeal === meal.idMeal);
+  if (!isAlreadyLiked(meal)) {
+    myRecipes.push(meal);
+    localStorage.setItem("myRecipes", JSON.stringify(myRecipes));
+  }
+};
 
-    if (!exists) {
-      myRecipes.push(meal);
-      localStorage.setItem("myRecipes", JSON.stringify(myRecipes));
-    }
-  };
+const isAlreadyLiked = (meal: Meal) => {
+  const myRecipesJSON = localStorage.getItem("myRecipes");
+  const myRecipes: Meal[] = myRecipesJSON ? JSON.parse(myRecipesJSON) : [];
+  return myRecipes.some((m) => m.idMeal === meal.idMeal);
+};
+
+const removeFromMyRecipes = (meal: Meal) => {
+  const myRecipesJSON = localStorage.getItem("myRecipes");
+  const myRecipes: Meal[] = myRecipesJSON ? JSON.parse(myRecipesJSON) : [];
+
+  if (isAlreadyLiked(meal)) {
+    const myNewRecipes = myRecipes.filter((m) => m.idMeal !== meal.idMeal);
+    localStorage.setItem("myRecipes", JSON.stringify(myNewRecipes));
+  }
+};
 
 export default function MealDescription({ meal }: MealProps) {
   return (
@@ -29,7 +43,21 @@ export default function MealDescription({ meal }: MealProps) {
       <h1 className={styles.headline}>{meal.strMeal}</h1>
       <p className={styles.description}>{meal.strInstructions}</p>
       <div className={styles.actions}>
-        <button className={styles.button} onClick={() => addToMyRecipes(meal)}>Add to MyRecipes</button>
+        {!isAlreadyLiked(meal) ? (
+          <button
+            className={styles.button}
+            onClick={() => addToMyRecipes(meal)}
+          >
+            Add to MyRecipes
+          </button>
+        ) : (
+          <button
+            className={styles.button}
+            onClick={() => removeFromMyRecipes(meal)}
+          >
+            Remove from MyRecipes
+          </button>
+        )}
       </div>
     </div>
   );
