@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     <div>
       <NavigationBar />
       <div>
-        <QuickSelectWrapper />
+        <QuickSelectWrapper query="a=list" />
         <HeroSearch />
         <FeaturedItems />
       </div>

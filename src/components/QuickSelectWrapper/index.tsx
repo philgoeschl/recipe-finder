@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import QuickSelect from "../QuickSelect";
 
+interface QuickSelectWrapperProps {
+    query: string;
+}
 
-
-const QuickSelectWrapper = () => {
+const QuickSelectWrapper = ({ query }: QuickSelectWrapperProps) => {
     // const links = [{ title: "Eier", url: "123" }, { title: "Butter", url: "456" }, { title: "Karotten", url: "789" }]
-    const query = "a=list";
     const [items, setSelectItems] = useState([]);
+    const queryType = query.split("=")[0];
 
     const fetchData = async (query: string) => {
         // Using Test API Key -> https://www.themealdb.com/api.php
@@ -40,7 +42,7 @@ const QuickSelectWrapper = () => {
 
     return (
         <div>
-            <QuickSelect headline={"Meals by area"} items={items} />
+            <QuickSelect headline={"Meals by area"} items={items} queryType={queryType} />
         </div>
     )
 }
