@@ -40,7 +40,7 @@ const QuickSelectWrapper = () => {
 
     return (
         <div>
-            <QuickSelect headline={"Test Quick Select Content"} items={items} />
+            <QuickSelect headline={"Meals by area"} items={items} />
         </div>
     )
 }

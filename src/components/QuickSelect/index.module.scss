@@ -1,1 +1,32 @@
 @use "../../styles/variables" as styles;
+
+.container {
+    max-width: 1000px;
+    padding: 16px;
+    margin: 32px auto;
+}
+
+.headline {
+    color: styles.$secondary-color;
+    text-align: center;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.button {
+    background-color: unset;
+    color: styles.$primary-color-text;
+    border: 1px solid styles.$primary-color-text;
+    cursor: pointer;
+
+    &:hover {
+        background-color: styles.$primary-color;
+        color: styles.$primary-color-text;
+    }
+}

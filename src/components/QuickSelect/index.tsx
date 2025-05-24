@@ -10,17 +10,15 @@ interface QuickSelectProps {
 }
 
 const QuickSelect = ({ headline, items }: QuickSelectProps) => {
-    console.log('### links', items);
-
     return (
         <div className={styles.container}>
-            <div>{headline}</div>
+            <h2 className={styles.headline}>{headline}</h2>
             <div className={styles.links}>
                 {items.map(({ strArea }) => {
                     return (
-                        <div key={strArea}>
+                        <button key={strArea} className={styles.button}>
                             {strArea}
-                        </div>
+                        </button>
                     )
 
                 })}
