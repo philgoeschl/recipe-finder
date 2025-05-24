@@ -19,7 +19,7 @@ export default function RecipeDetail() {
     if (saved) {
       const meals: Meal[] = JSON.parse(saved);
       const found = meals.find((meal) => meal.idMeal === id);
-      // TODO: check if content is complete -> from filter api the description is not loaded or stored
+      // issue when there is the lastSearchResult -> after searching something new, the meal is fetch again
       if (found) {
         setMeal(found);
       } else {

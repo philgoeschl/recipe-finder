@@ -22,8 +22,11 @@
 .button {
     background-color: unset;
     color: styles.$primary-color-text;
-    border: 1px solid styles.$primary-color-text;
+    font-weight: bold;
+    // border: 1px solid styles.$primary-color-text;
+    border: unset;
     cursor: pointer;
+    padding: 4px 8px;
 
     &:hover {
         background-color: styles.$primary-color;
